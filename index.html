@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NEON ETERNITY | P2P MMO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- CDN Imports -->
+    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.10.1/nipplejs.min.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <canvas id="game-canvas"></canvas>
+        
+        <div id="ui-overlay">
+            <div id="auth-screen" class="glass-panel">
+                <h1 class="neon-text">NEON ETERNITY</h1>
+                <p class="tagline">DECENTRALIZED UNIVERSE</p>
+                <div class="auth-controls">
+                    <input type="text" id="alias" placeholder="ALIAS">
+                    <input type="password" id="pass" placeholder="PASSPHRASE">
+                    <div class="btn-group">
+                        <button id="btn-new">NEW REALITY</button>
+                        <button id="btn-load">LOAD REALITY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="game-ui" class="hidden">
+                <div id="chat-container" class="glass-panel">
+                    <div id="chat-messages"></div>
+                    <input type="text" id="chat-input" placeholder="BROADCAST MESSAGE...">
+                </div>
+                <div id="stats-panel">
+                    <div class="stat">ALTITUDE: <span id="alt-val">0</span>m</div>
+                    <div class="stat">SHARDS: <span id="shards-val">0</span></div>
+                </div>
+                <div id="joystick-zone"></div>
+            </div>
+
+            <div id="loading-screen" class="hidden">
+                <div class="loader"></div>
+                <p>SYNCING WITH PEERS...</p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

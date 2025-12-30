@@ -1,0 +1,178 @@
+:root {
+    --neon-cyan: #00ffff;
+    --neon-magenta: #ff00ff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: #050505;
+    color: #fff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+#app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#game-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#ui-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.hidden { display: none !important; }
+
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    pointer-events: auto;
+}
+
+#auth-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.1);
+}
+
+.neon-text {
+    font-size: 42px;
+    letter-spacing: 5px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+    margin-bottom: 5px;
+}
+
+.tagline {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--neon-magenta);
+    margin-bottom: 30px;
+}
+
+.auth-controls input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    padding: 15px;
+    color: #fff;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-family: inherit;
+    outline: none;
+}
+
+.btn-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+button {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+#chat-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 250px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+#chat-input {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 8px;
+    color: #fff;
+    font-size: 11px;
+    border-radius: 4px;
+}
+
+#stats-panel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+.stat {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+#joystick-zone {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    pointer-events: auto;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--glass-border);
+    border-top-color: var(--neon-cyan);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
